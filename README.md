@@ -25,6 +25,8 @@ Track interface GigabitEthernet0/1 State Up Decrement 10
 
 ![text](https://github.com/stkv1/keepalived/blob/main/img/105.PNG)
 
+Аналогично делаем для второго маршрутизатора
+
 
 ## Задание 2
 
