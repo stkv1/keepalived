@@ -40,13 +40,29 @@ Track interface GigabitEthernet0/1 State Up Decrement 10
 
 На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
 
-При выполнении задания получаю ошибку:
+По какой-то причине не происходит переключения, хотя скрипты отрабатываются корректно:
 
-`Warning - script is not used`
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/112.PNG)
+![text](https://github.com/stkv1/keepalived/blob/main/img/210.PNG)
 
-Соответственно, переключения не происходит
+Версия ОС - Ubuntu 20.04
+
+Keepalived 2.0.19
+
+Скриншоты, где видно, что на мастере остановлен Nginx, а на Backup-е запущен:
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/206.PNG)
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/207.PNG)
+
+Переключение не происходит:
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/211.PNG)
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/212.PNG)
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/213.PNG)
+
 
 Сами скрипты отрабатывают корректно, права выставлены 755, пути до скриптов верные, пользователь, указанный в конфиге, соответствует владельцу скриптов
 
