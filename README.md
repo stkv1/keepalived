@@ -40,33 +40,38 @@ Track interface GigabitEthernet0/1 State Up Decrement 10
 
 На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
 
-По какой-то причине не происходит переключения, хотя скрипты отрабатываются корректно:
 
+На обеих машинах запущен Nginx:
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/210.PNG)
+![text](https://github.com/stkv1/keepalived/blob/main/img/301.PNG)
 
-Версия ОС - Ubuntu 20.04
+![text](https://github.com/stkv1/keepalived/blob/main/img/302.PNG)
 
-Keepalived 2.0.19
+![text](https://github.com/stkv1/keepalived/blob/main/img/303.PNG)
 
-Скриншоты, где видно, что на мастере остановлен Nginx, а на Backup-е запущен:
+Текст скрипта для проверки доступности порта:
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/206.PNG)
+`nc -z 127.0.0.1 80`
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/207.PNG)
+Проверка:
 
-Переключение не происходит:
+![text](https://github.com/stkv1/keepalived/blob/main/img/304.PNG)
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/211.PNG)
+![text](https://github.com/stkv1/keepalived/blob/main/img/305.PNG)
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/212.PNG)
+![text](https://github.com/stkv1/keepalived/blob/main/img/306.PNG)
 
-![text](https://github.com/stkv1/keepalived/blob/main/img/213.PNG)
+Текст скрипта для проверки доступности наличия файла index.html:
 
+`cp /var/www/html/index.nginx-debian.html /dev/zero`
 
-Сами скрипты отрабатывают корректно, права выставлены 755, пути до скриптов верные, пользователь, указанный в конфиге, соответствует владельцу скриптов
+Проверка:
 
-Решение найти не удалось
+![text](https://github.com/stkv1/keepalived/blob/main/img/307.PNG)
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/308.PNG)
+
+![text](https://github.com/stkv1/keepalived/blob/main/img/309.PNG)
 
 ## Задание 3*
 Изучите дополнительно возможность Keepalived, которая называется vrrp_track_file
